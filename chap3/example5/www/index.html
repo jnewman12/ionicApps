@@ -27,10 +27,28 @@
 
     <ion-pane>
        <ion-header-bar class="bar-assertive">
-         <h1 class="title">Ionic Blank Starter</h1>
+         <div class="buttons">
+            <button class="button">Left</button>
+          </div>
+          <h1 class="title">Ionic Blank Starter</h1>
+          <div class="buttons">
+            <button class="button">Right</button>
+          </div>
        </ion-header-bar>
-       <ion-content>
+       <ion-content class="padding">
+          <button class="button">Default </button>
+          <button class="button button-full button-positive"> Full Width Block Button</button>
+          <button class="button button-small button-assertive">Small Button</button>
+          <button class="button button-large button-calm">Large Button</button>
+          <button class="button button-outline button-dark">Outlined Button</button>
+          <button class="button button-clear button-energized">Clear Button</button>
+          <button class="button icon-left ion-star button-balanced">Icon Button</button>
+
        </ion-content>
+
+       <ion-footer-bar class="bar-assertive">
+          <div class="title">Footer</div>
+        </ion-footer-bar>
     </ion-pane>
   </body>
 </html>
