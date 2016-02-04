@@ -40,12 +40,12 @@ angular.module('starter', ['ionic'])
 
 .controller('LoginCtrl', function($scope, $state) {
   $scope.validate = function() {
-   // some other validations...
    $state.go('app');
   } 
 })
   
 .controller('AppCtrl', function ($scope) {
+  // empty for now
 })
 
 .controller('MainCtrl', ['$scope', function($scope) {
