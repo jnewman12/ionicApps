@@ -23,46 +23,54 @@ angular.module('starter', ['ionic'])
   });
 })
 
-.config(function ($stateProvider, $urlRouterProvider) {
+.config(function($stateProvider, $urlRouterProvider) {
   $stateProvider
-  .state('view1', {
-   url: '/view1',
-   template: '<div class="padding"><h2>View 1</h2><button class="button button-positive" ui-sref="view2">To View 2</button></div>'
-  })
-  .state('view2', {
-   url: '/view2',
-   template: '<div class="padding"><h2>View 2</h2><button class="button button-assertive" ui-sref="view1">To View 1</button></div>'
-  })
-  $urlRouterProvider.otherwise('/view1');
+    .state('login', {
+      url: '/login',
+      templateUrl: 'templates/login.html',
+      controller: 'LoginCtrl'
+    })
+    .state('app', {
+      url: '/app',
+      templateUrl: 'templates/app.html',
+      controller: 'AppCtrl'
+    })
+  $urlRouterProvider.otherwise('/login');
 })
 
-.controller('MainCtrl', ['$scope', function($scope) {
-  $scope.ratingArr = [{
-   value: 1,
-   icon: 'ion-ios-star-outline'
-  }, {
-    value: 2,
-    icon: 'ion-ios-star-outline'
-  }, {
-    value: 3,
-    icon: 'ion-ios-star-outline'
-  }, {
-    value: 4,
-    icon: 'ion-ios-star-outline'
-  }, {
-    value: 5,
-    icon: 'ion-ios-star-outline'
-  }];
-  $scope.setRating = function(val) {
-    var rtgs = $scope.ratingArr;
-    for (var i = 0; i < rtgs.length; i++) {
-      if (i < val) {
-        rtgs[i].icon = 'ion-ios-star';
-      } else {
-        rtgs[i].icon = 'ion-ios-star-outline'; 
-        } 
-      };
-    } 
-  }
-])  
+.controller('LoginCtrl', function ($scope) {
+})
+  
+.controller('AppCtrl', function ($scope) {
+})
+
+// .controller('MainCtrl', ['$scope', function($scope) {
+//   $scope.ratingArr = [{
+//    value: 1,
+//    icon: 'ion-ios-star-outline'
+//   }, {
+//     value: 2,
+//     icon: 'ion-ios-star-outline'
+//   }, {
+//     value: 3,
+//     icon: 'ion-ios-star-outline'
+//   }, {
+//     value: 4,
+//     icon: 'ion-ios-star-outline'
+//   }, {
+//     value: 5,
+//     icon: 'ion-ios-star-outline'
+//   }];
+//   $scope.setRating = function(val) {
+//     var rtgs = $scope.ratingArr;
+//     for (var i = 0; i < rtgs.length; i++) {
+//       if (i < val) {
+//         rtgs[i].icon = 'ion-ios-star';
+//       } else {
+//         rtgs[i].icon = 'ion-ios-star-outline'; 
+//         } 
+//       };
+//     } 
+//   }
+// ])  
 
