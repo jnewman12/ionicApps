@@ -38,39 +38,43 @@ angular.module('starter', ['ionic'])
   $urlRouterProvider.otherwise('/login');
 })
 
-.controller('LoginCtrl', function ($scope) {
+.controller('LoginCtrl', function($scope, $state) {
+  $scope.validate = function() {
+   // some other validations...
+   $state.go('app');
+  } 
 })
   
 .controller('AppCtrl', function ($scope) {
 })
 
-// .controller('MainCtrl', ['$scope', function($scope) {
-//   $scope.ratingArr = [{
-//    value: 1,
-//    icon: 'ion-ios-star-outline'
-//   }, {
-//     value: 2,
-//     icon: 'ion-ios-star-outline'
-//   }, {
-//     value: 3,
-//     icon: 'ion-ios-star-outline'
-//   }, {
-//     value: 4,
-//     icon: 'ion-ios-star-outline'
-//   }, {
-//     value: 5,
-//     icon: 'ion-ios-star-outline'
-//   }];
-//   $scope.setRating = function(val) {
-//     var rtgs = $scope.ratingArr;
-//     for (var i = 0; i < rtgs.length; i++) {
-//       if (i < val) {
-//         rtgs[i].icon = 'ion-ios-star';
-//       } else {
-//         rtgs[i].icon = 'ion-ios-star-outline'; 
-//         } 
-//       };
-//     } 
-//   }
-// ])  
+.controller('MainCtrl', ['$scope', function($scope) {
+  $scope.ratingArr = [{
+   value: 1,
+   icon: 'ion-ios-star-outline'
+  }, {
+    value: 2,
+    icon: 'ion-ios-star-outline'
+  }, {
+    value: 3,
+    icon: 'ion-ios-star-outline'
+  }, {
+    value: 4,
+    icon: 'ion-ios-star-outline'
+  }, {
+    value: 5,
+    icon: 'ion-ios-star-outline'
+  }];
+  $scope.setRating = function(val) {
+    var rtgs = $scope.ratingArr;
+    for (var i = 0; i < rtgs.length; i++) {
+      if (i < val) {
+        rtgs[i].icon = 'ion-ios-star';
+      } else {
+        rtgs[i].icon = 'ion-ios-star-outline'; 
+        } 
+      };
+    } 
+  }
+])  
 
