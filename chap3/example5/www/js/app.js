@@ -23,6 +23,19 @@ angular.module('starter', ['ionic'])
   });
 })
 
+.config(function ($stateProvider, $urlRouterProvider) {
+  $stateProvider
+  .state('view1', {
+   url: '/view1',
+   template: '<div class="padding"><h2>View 1</h2><button class="button button-positive" ui-sref="view2">To View 2</button></div>'
+  })
+  .state('view2', {
+   url: '/view2',
+   template: '<div class="padding"><h2>View 2</h2><button class="button button-assertive" ui-sref="view1">To View 1</button></div>'
+  })
+  $urlRouterProvider.otherwise('/view1');
+})
+
 .controller('MainCtrl', ['$scope', function($scope) {
   $scope.ratingArr = [{
    value: 1,
