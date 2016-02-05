@@ -25,33 +25,68 @@ angular.module('starter', ['ionic'])
 
 .config(function($stateProvider, $urlRouterProvider) {
   $stateProvider
-  .state('login', {
-    url: '/login',
-    views: {
-      login: {
-        templateUrl: 'templates/login.html'
+  .state('tab', {
+    url: "/tab",
+    abstract: true,
+    templateUrl: "templates/tabs.html"
+  })
+ .state('tab.dash', {
+   url: '/dash',
+   views: {
+     'tab-dash': {
+        templateUrl: 'templates/tab-dash.html',
+        controller: 'DashCtrl'
       } 
     }
   })
-  .state('register', {
-    url: '/register',
+  .state('tab.chats', {
+    url: '/chats',
     views: {
-      register: {
-        templateUrl: 'templates/register.html'
+      'tab-chats': {
+        templateUrl: 'templates/tab-chats.html',
+        controller: 'ChatsCtrl'
+      }
+    } 
+  })
+  .state('tab.chat-detail', {
+    url: '/chats/:chatId',
+    views: {
+      'tab-chats': {
+        templateUrl: 'templates/chat-detail.html',
+        controller: 'ChatDetailCtrl'
       } 
     }
   })
-  $urlRouterProvider.otherwise('/login');
+  state('tab.chat-detail', {
+    url: '/chats/:chatId',
+    views: {
+      'tab-chats': {
+        templateUrl: 'templates/chat-detail.html',
+        controller: 'ChatDetailCtrl'
+      } 
+    }
+  })
+  .state('tab.account', {
+    url: '/account',
+    views: {
+      'tab-account': {
+        templateUrl: 'templates/tab-account.html',
+        controller: 'AccountCtrl'
+      } 
+    }
+  });
+  $urlRouterProvider.otherwise('/tab/dash');
+});       
+
+
+.controller('ChatDetailCtrl', function($scope, $stateParams, Chats) {
+  $scope.chat = Chats.get($stateParams.chatId);
 })
 
 .controller('LoginCtrl', function($scope, $state) {
   $scope.validate = function() {
    $state.go('app');
   } 
-})
-  
-.controller('AppCtrl', function ($scope) {
-  // empty for now
 })
 
 .controller('MainCtrl', ['$scope', function($scope) {
