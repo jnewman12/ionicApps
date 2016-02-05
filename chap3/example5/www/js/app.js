@@ -23,18 +23,39 @@ angular.module('starter', ['ionic'])
   });
 })
 
+// .config(function($stateProvider, $urlRouterProvider) {
+//   $stateProvider
+//     .state('login', {
+//       url: '/login',
+//       templateUrl: 'templates/login.html',
+//       controller: 'LoginCtrl'
+//     })
+//     .state('app', {
+//       url: '/app',
+//       templateUrl: 'templates/app.html',
+//       controller: 'AppCtrl'
+//     })
+//   $urlRouterProvider.otherwise('/login');
+// })
+
 .config(function($stateProvider, $urlRouterProvider) {
   $stateProvider
-    .state('login', {
-      url: '/login',
-      templateUrl: 'templates/login.html',
-      controller: 'LoginCtrl'
-    })
-    .state('app', {
-      url: '/app',
-      templateUrl: 'templates/app.html',
-      controller: 'AppCtrl'
-    })
+  .state('login', {
+    url: '/login',
+    views: {
+      login: {
+        templateUrl: 'templates/login.html'
+      } 
+    }
+  })
+  .state('register', {
+    url: '/register',
+    views: {
+      register: {
+        templateUrl: 'templates/register.html'
+      } 
+    }
+  })
   $urlRouterProvider.otherwise('/login');
 })
 

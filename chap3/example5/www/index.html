@@ -23,13 +23,14 @@
   </head>
 
   <body ng-app="starter">
-  
-    <ion-pane>
-      <ion-header-bar class="bar-stable">
-      <h1 class="title">My Awesome App</h1>
-      </ion-header-bar>
-      <ion-nav-view class="has-header"></ion-nav-view>
-    </ion-pane>
-    
+    <ion-nav-bar class="bar-royal"></ion-nav-bar>
+    <ion-tabs class="tabs-royal">
+      <ion-tab icon="ion-power" ui-sref="login">
+        <ion-nav-view name="login"></ion-nav-view>
+      </ion-tab>
+      <ion-tab icon="ion-person-add" ui-sref="register">
+        <ion-nav-view name="register"></ion-nav-view>
+      </ion-tab>
+    </ion-tabs>
   </body>
 </html>
