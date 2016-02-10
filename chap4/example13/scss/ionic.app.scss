@@ -37,4 +37,20 @@ $active-border-color, $color) {
     border-color: $active-border-color;
     background-color: $active-bg-color;
     box-shadow: inset 0 1px 4px rgba(0,0,0,0.1);
-} }
+  } 
+}
+
+/* clear fix */
+
+@mixin clearfix {
+  *zoom: 1;
+  &:before,
+  &:after {
+    display: table;
+    content: "";
+    line-height: 0;
+  }
+  &:after {
+    clear: both;
+  }
+}
