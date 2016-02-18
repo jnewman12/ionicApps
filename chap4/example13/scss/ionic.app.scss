@@ -1,66 +1,3 @@
-/*
-To customize the look and feel of Ionic, you can override the variables
-in ionic's _variables.scss file.
-
-For example, you might change some of the default colors:
-
-$light:                           #fff !default;
-$stable:                          #f8f8f8 !default;
-$positive:                        #387ef5 !default;
-$calm:                            #11c1f3 !default;
-$balanced:                        #33cd5f !default;
-$energized:                       #ffc900 !default;
-$assertive:                       #ef473a !default;
-$royal:                           #886aea !default;
-$dark:                            #444 !default;
-*/
-
-// The path for our ionicons font files, relative to the built CSS in www/css
-$ionicons-font-path: "../lib/ionic/fonts" !default;
-
-// Include all of Ionic
-@import "www/lib/ionic/scss/ionic";
-
-// $positive: teal;
-// $stable: #009688;
-// $energized: #ef473a;
-// $royal: #f8f8f8;
-// $dark: #ffc900;
-// $bar-text-stable: #ffc900;
-
-// @mixin button-style($bg-color, $border-color, $active-bg-color,
-// $active-border-color, $color) {
-//   border-color: $border-color;
-//   background-color: $bg-color;
-//   color: $color;
-//   // Give desktop users something to play with
-//   &:hover {
-//     color: $color;
-//     text-decoration: none;
-//   }
-//   &.active,
-//   &.activated {
-//     border-color: $active-border-color;
-//     background-color: $active-bg-color;
-//     box-shadow: inset 0 1px 4px rgba(0,0,0,0.1);
-//   } 
-// }
-
-// /* clear fix */
-
-// @mixin clearfix {
-//   *zoom: 1;
-//   &:before,
-//   &:after {
-//     display: table;
-//     content: "";
-//     line-height: 0;
-//   }
-//   &:after {
-//     clear: both;
-//   }
-// }
-
 // override all $stable themed components
 $stable: #009688;
 // override the burger menu color
@@ -68,7 +5,7 @@ $bar-stable-text: #eee;
 // override app base color
 $base-color: #00695C;
 // increase the item padding
-$item-padding : 30px;
+$item-padding: 30px;
 // override buttons
 $button-positive-bg: #00BFA5;
 $button-positive-border: #00BFA5;
