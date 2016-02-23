@@ -20,7 +20,7 @@ angular.module('starter', ['ionic'])
      $ionicPlatform.offHardwareBackButton(hardwareBackButtonHandler);
     }
   }
-  $ionicPlatform.offHardwareBackButton(hardwareBackButtonHandler)
+  //$ionicPlatform.offHardwareBackButton(hardwareBackButtonHandler)
   // when the app boots up
   manageBackPressEvent(alertOnBackPress);
   // later in the code/controller when you let
