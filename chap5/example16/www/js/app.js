@@ -9,27 +9,52 @@ angular.module('starter', ['ionic'])
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
     var alertOnBackPress = localStorage.getItem('alertOnBackPress');
+
     var hardwareBackButtonHandler = function() {
-    console.log('Hardware back button pressed');
-    // do more interesting things here
-  }
-  function manageBackPressEvent(alertOnBackPress) {
-    if (alertOnBackPress) {
-      $ionicPlatform.onHardwareBackButton(hardwareBackButtonHandler);
-    } else {
-     $ionicPlatform.offHardwareBackButton(hardwareBackButtonHandler);
+      console.log('Hardware back button pressed');
+      // do more interesting things here
+    }  
+
+    function manageBackPressEvent(alertOnBackPress) {
+      if (alertOnBackPress) {
+        $ionicPlatform.onHardwareBackButton(hardwareBackButtonHandler);
+      } else {
+       $ionicPlatform.offHardwareBackButton(hardwareBackButtonHandler);
+      }
+    }
+
+    var cancelPause = $ionicPlatform.on('pause', function() {
+      console.log('App is sent to background');
+      // do stuff to save power
+    });
+
+    var cancelResume = $ionicPlatform.on('resume', function() {
+      console.log('App is retrieved from background');
+      // re-init the app
+    });
+
+    // Supported only in BlackBerry 10 & Android
+    var cancelVolumeUpButton = $ionicPlatform.on('volumeupbutton', function() {
+      console.log('Volume up button pressed');
+      // moving a slider up
+    });
+
+    var cancelVolumeDownButton = $ionicPlatform.on('volumedownbutton', function() {
+      console.log('Volume down button pressed');
+      // moving a slider down
+    });
+
+    // when the app boots up
+    manageBackPressEvent(alertOnBackPress);
+  
+    function updateSettings(alertOnBackPressModified) {
+      localStorage.setItem('alertOnBackPress', alertOnBackPressModified);
+      manageBackPressEvent(alertOnBackPressModified)
     }
   }
-  //$ionicPlatform.offHardwareBackButton(hardwareBackButtonHandler)
-  // when the app boots up
-  manageBackPressEvent(alertOnBackPress);
-  // later in the code/controller when you let
-  // the user update the setting
-  function updateSettings(alertOnBackPressModified) {
-      localStorage.setItem('alertOnBackPress',alertOnBackPressModified);
-          manageBackPressEvent(alertOnBackPressModified)
-      }
-  }); 
+
+ );
+
 })
 
 .config(function($stateProvider, $urlRouterProvider) {
