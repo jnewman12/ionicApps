@@ -8,8 +8,8 @@ angular.module('starter', ['ionic'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
-  var alertOnBackPress = localStorage.getItem('alertOnBackPress');
-  var hardwareBackButtonHandler = function() {
+    var alertOnBackPress = localStorage.getItem('alertOnBackPress');
+    var hardwareBackButtonHandler = function() {
     console.log('Hardware back button pressed');
     // do more interesting things here
   }
@@ -20,7 +20,7 @@ angular.module('starter', ['ionic'])
      $ionicPlatform.offHardwareBackButton(hardwareBackButtonHandler);
     }
   }
-  $ionicPlatform.offHardwareBackButton(hardwareBackButt
+  $ionicPlatform.offHardwareBackButton(hardwareBackButtonHandler)
   // when the app boots up
   manageBackPressEvent(alertOnBackPress);
   // later in the code/controller when you let
