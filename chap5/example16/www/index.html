@@ -23,12 +23,32 @@
   </head>
   <body ng-app="starter">
 
-    <ion-pane>
-      <ion-header-bar class="bar-stable">
-        <h1 class="title">Ionic Blank Starter</h1>
-      </ion-header-bar>
-      <ion-content>
-      </ion-content>
-    </ion-pane>
+    <ion-header-bar align-title="center" class="bar-assertive">
+      <div class="buttons">
+        <button class="button button-royal" ng-click="doSomething()">Left Button</button>
+      </div>
+      <h1 class="title">Fixed Header</h1>
+        <div class="buttons">
+          <button class="button button-royal">Right Button</button>
+        </div>
+    </ion-header-bar>
+
+    <ion-content>
+      <div class="padding">
+        <h3>Content</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Utenim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. </p>
+      </div>
+    </ion-content>
+    <ion-footer-bar align-title="left" class="bar-energized">
+      <div class="buttons">
+        <button class="button button-dark">Left Button</button>
+      </div>
+      <h1 class="title">Fixed Footer</h1>
+      <div class="buttons" ng-click="doSomething()">
+        <button class="button button-dark">Right Button</button>
+      </div>
+    </ion-footer-bar>
   </body>
 </html>
