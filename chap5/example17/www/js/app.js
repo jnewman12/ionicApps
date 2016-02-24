@@ -108,4 +108,20 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
   return API
 }) 
 
+.controller('AppController', function($scope, DataFactory) {
+  $scope.items = [];
+  $scope.doRefresh = function() {
+    DataFactory.getData(3).then(function(data) {
+      Array.prototype.push.apply($scope.items, data);
+    }).finally(function() {
+      // Stop the ion-refresher from spinning
+      $scope.$broadcast('scroll.refreshComplete');
+    })
+  }
+  // load data on page load
+  DataFactory.getData(3).then(function(data) {
+    $scope.items = data;
+  });
+})
+
 
