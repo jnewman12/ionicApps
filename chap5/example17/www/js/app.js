@@ -108,7 +108,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
   return API
 }) 
 
-.controller('AppController', function($scope, DataFactory) {
+.controller('AppCtrl', function($scope, DataFactory) {
   $scope.items = [];
   $scope.doRefresh = function() {
     DataFactory.getData(3).then(function(data) {
@@ -118,6 +118,18 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
       $scope.$broadcast('scroll.refreshComplete');
     })
   }
+
+  $scope.loadMore = function() {
+    DataFactory.getData(3).then(function(data) {
+      // extend the $scope.items array with the response
+      // array from getData();
+      // http://stackoverflow.com/a/1374131/1015046
+      Array.prototype.push.apply($scope.items, data); 
+      }).finally(function() { // Stop the ion-refresher from spinning
+       $scope.$broadcast('scroll.infiniteScrollComplete'); 
+    }); 
+  }
+
   // load data on page load
   DataFactory.getData(3).then(function(data) {
     $scope.items = data;
