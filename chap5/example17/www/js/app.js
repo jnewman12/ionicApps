@@ -130,6 +130,10 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
     }); 
   }
 
+  $scope.scrollToTop = function() {
+    $ionicScrollDelegate.scrollTop();
+  }
+
   // load data on page load
   DataFactory.getData(3).then(function(data) {
     $scope.items = data;
