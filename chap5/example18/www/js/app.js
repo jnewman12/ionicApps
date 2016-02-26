@@ -68,3 +68,15 @@ angular.module('starter', ['ionic'])
   $urlRouterProvider.otherwise('/page1');
   
 })
+
+.controller('PageOneCtrl', function($scope, $ionicNavBarDelegate){
+  $ionicNavBarDelegate.title('Page 1');
+})
+
+.controller('PageTwoCtrl', function($scope, $ionicNavBarDelegate){
+  $ionicNavBarDelegate.title('Page 2');
+  $ionicNavBarDelegate.showBackButton(false);
+})
+
+
+
