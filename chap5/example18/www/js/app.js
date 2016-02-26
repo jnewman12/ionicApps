@@ -79,6 +79,12 @@ angular.module('starter', ['ionic'])
   console.log('backTitle', $ionicHistory.backTitle());
   console.log('forwardView', $ionicHistory.forwardView());
   console.log('currentStateName', $ionicHistory.currentStateName());
+
+  $ionicHistory.nextViewOptions({
+    disableAnimate: true,
+    disableBack: true,
+    historyRoot: true
+  });
 })
 
 .controller('PageTwoCtrl', function($scope, $ionicNavBarDelegate, $ionicHistory) { // injecting ionicHistory
