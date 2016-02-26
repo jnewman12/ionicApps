@@ -69,15 +69,22 @@ angular.module('starter', ['ionic'])
   
 })
 
-.controller('PageOneCtrl', function($scope, $ionicNavBarDelegate){
+.controller('PageOneCtrl', function($scope, $ionicNavBarDelegate, $ionicHistory){
   // titles, like with rails
   $ionicNavBarDelegate.title('Page 1');
+  console.log('currentView', $ionicHistory.currentView());
+  console.log('currentHistoryId', $ionicHistory.currentHistoryId());
+  console.log('currentTitle', $ionicHistory.currentTitle());
+  console.log('backView', $ionicHistory.backView());
+  console.log('backTitle', $ionicHistory.backTitle());
+  console.log('forwardView', $ionicHistory.forwardView());
+  console.log('currentStateName', $ionicHistory.currentStateName());
 })
 
 .controller('PageTwoCtrl', function($scope, $ionicNavBarDelegate, $ionicHistory) { // injecting ionicHistory
   $ionicNavBarDelegate.title('Page 2');
   $ionicNavBarDelegate.showBackButton(false);
-  console.log($ionicHistory.viewHistory())
+  console.log($ionicHistory.viewHistory()) // very detailed object to view all of the user's history in the app
 })
 
 
