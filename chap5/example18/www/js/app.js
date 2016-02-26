@@ -70,13 +70,14 @@ angular.module('starter', ['ionic'])
 })
 
 .controller('PageOneCtrl', function($scope, $ionicNavBarDelegate){
+  // titles, like with rails
   $ionicNavBarDelegate.title('Page 1');
 })
 
-.controller('PageTwoCtrl', function($scope, $ionicNavBarDelegate){
+.controller('PageTwoCtrl', function($scope, $ionicNavBarDelegate, $ionicHistory) { // injecting ionicHistory
   $ionicNavBarDelegate.title('Page 2');
   $ionicNavBarDelegate.showBackButton(false);
+  console.log($ionicHistory.viewHistory())
 })
-
 
 
