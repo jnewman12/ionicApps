@@ -63,6 +63,8 @@ angular.module('starter', ['ionic'])
     templateUrl: 'page2.html'
   });
   $urlRouterProvider.otherwise('/page1');
+  // angular redirect!!
+  $window.location.href = '/index.html';
   
 })
 
