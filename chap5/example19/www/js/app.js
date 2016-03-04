@@ -94,11 +94,30 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
    $ionicLoading.hide();
   };
   $scope.toggleOverlay = function() {
-  $scope.showLoadingOverlay();
-  // wait for 3 seconds and hide the overlay
-  $timeout(function() {
-     $scope.hideLoadingOverlay();
-  }, 3000);
+    $scope.showLoadingOverlay();
+    // wait for 3 seconds and hide the overlay
+    $timeout(function() {
+       $scope.hideLoadingOverlay();
+    }, 3000);
+  }; 
+})
 
+// or as a service
+.service('Loading', function($ionicLoading, $timeout) {
+  this.show = function() {
+    $ionicLoading.show({
+      template: 'Loading...'
+    }); 
+  };
+  this.hide = function() {
+    $ionicLoading.hide();
+  };
+  this.toggle= function() {
+    var self  = this;
+    self.show();
+    // wait for 3 seconds and hide the overlay
+    $timeout(function() { 
+      self.hide(); 
+    }, 3000);
   }; 
 })
