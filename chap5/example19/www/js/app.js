@@ -51,7 +51,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
   })
 
   .state('tab.chats', {
-      url: '/chats',
+    url: '/chats',
       views: {
         'tab-chats': {
           templateUrl: 'templates/tab-chats.html',
@@ -121,3 +121,8 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
     }, 3000);
   }; 
 })
+
+// shows just the spinner (example)
+$scope.showLoadingOverlay = function() {
+  $ionicLoading.show();￼
+};
