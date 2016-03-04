@@ -82,4 +82,23 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/tab/dash');
 
-});
+})
+
+.controller('AppCtrl', function($scope, $ionicLoading, $timeout) {
+  $scope.showLoadingOverlay = function() {
+   $ionicLoading.show({
+       template: 'Loading...'
+   });
+  };
+  $scope.hideLoadingOverlay = function() {
+   $ionicLoading.hide();
+  };
+  $scope.toggleOverlay = function() {
+  $scope.showLoadingOverlay();
+  // wait for 3 seconds and hide the overlay
+  $timeout(function() {
+     $scope.hideLoadingOverlay();
+  }, 3000);
+
+  }; 
+})
