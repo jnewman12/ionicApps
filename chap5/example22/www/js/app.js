@@ -42,21 +42,65 @@ angular.module('starter', ['ionic'])
 // })
 
 
-.controller('AppCtrl', function($scope, $ionicPopover) {
-  // init the popover
-  $ionicPopover.fromTemplateUrl('button-options.html', {
-    scope: $scope
-  }).then(function(popover) {
-    $scope.popover = popover;
-  });
-  $scope.openPopover = function($event, type) {
-    $scope.type = type;
-    $scope.popover.show($event);
-  };
-  $scope.closePopover = function() {
-    $scope.popover.hide();
-    // if you are navigating away from the page once
-    // an option is selected, make sure to call
-    // $scope.popover.remove();
-￼ }; 
+// .controller('AppCtrl', function($scope, $ionicPopover) {
+//   // init the popover
+//   $ionicPopover.fromTemplateUrl('button-options.html', { scope: $scope }).then(function(popover) {
+//     $scope.popover = popover;
+//   });
+//   $scope.openPopover = function($event, type) {
+//     $scope.type = type;
+//     $scope.popover.show($event);
+//   };
+//   $scope.closePopover = function() {
+//     // if you are navigating away from the page once
+//     // an option is selected, make sure to call
+//     // $scope.popover.remove();
+//     $scope.popover.hide();
+// ￼ }; 
+// });
+
+
+.controller('AppCtrl', function($scope, $ionicPopup) {
+  $scope.data = {};
+  $scope.state = {};
+  $scope.error = {};
+  $scope.prompt = function() {
+  // reset app states
+  $scope.state.cancel = false;
+  $scope.state.success = false;
+  // reset error messages
+  $scope.error.empty = false;
+  $scope.error.invalid = false;
+  var prompt = $ionicPopup.show({
+     templateUrl: 'pin-template.html',
+     title: 'Enter Pin to continue',
+     scope: $scope,
+     buttons: [{
+      text: 'Cancel',
+      onTap: function(e) {
+         $scope.state.cancel = true;
+      } 
+    }, {
+    text: '<b>Login</b>',
+    type: 'button-assertive',
+    onTap: function(e) {
+      $scope.error.empty = false;
+      $scope.error.invalid = false;
+      if (!$scope.data.pin) {
+         // disable close if the
+         // user does not enter
+         // a valid pin
+         $scope.error.empty = true;
+         e.preventDefault();
+      } else {
+      if ($scope.data.pin === '1234') {
+      $scope.state.success = true;
+      return $scope.data.pin;
+      } else {
+      $scope.error.invalid = true;
+      e.preventDefault();
+      }
+  ￼ } 
+  }
+ }] 
 });
