@@ -23,20 +23,40 @@ angular.module('starter', ['ionic'])
   });
 })
 
-.controller('AppCtrl', function($scope, $ionicActionSheet,$timeout) {
-  $scope.showOptions = function() {
-    var hideSheet = $ionicActionSheet.show({
-      buttons: [{
-      text: 'Open'
-      }, {
-      text: 'Get Link'
-      }],
-      destructiveText: 'Delete',
-      titleText: 'Options'
-    });
-    // hide the sheet after three seconds
-    $timeout(function() {
-       hideSheet();
-    }, 3000);
-  }; 
-})
+// .controller('AppCtrl', function($scope, $ionicActionSheet,$timeout) {
+//   $scope.showOptions = function() {
+//     var hideSheet = $ionicActionSheet.show({
+//       buttons: [{
+//       text: 'Open'
+//       }, {
+//       text: 'Get Link'
+//       }],
+//       destructiveText: 'Delete',
+//       titleText: 'Options'
+//     });
+//     // hide the sheet after three seconds
+//     $timeout(function() {
+//        hideSheet();
+//     }, 3000);
+//   }; 
+// })
+
+
+.controller('AppCtrl', function($scope, $ionicPopover) {
+  // init the popover
+  $ionicPopover.fromTemplateUrl('button-options.html', {
+    scope: $scope
+  }).then(function(popover) {
+    $scope.popover = popover;
+  });
+  $scope.openPopover = function($event, type) {
+    $scope.type = type;
+    $scope.popover.show($event);
+  };
+  $scope.closePopover = function() {
+    $scope.popover.hide();
+    // if you are navigating away from the page once
+    // an option is selected, make sure to call
+    // $scope.popover.remove();
+￼ }; 
+});
