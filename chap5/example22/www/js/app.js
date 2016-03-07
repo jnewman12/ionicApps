@@ -101,6 +101,32 @@ angular.module('starter', ['ionic'])
       e.preventDefault();
       }
   ￼ } 
-  }
- }] 
-});
+   }
+  }] 
+ });
+ $scope.confirm = function() {
+  var confirm = $ionicPopup.confirm({
+      title: 'Confirm Popup Heading',
+      template: 'Are you sure you want to do that?'
+  });
+  confirm.then(function(res) {
+      if (res) {
+          console.log('Yes!');
+      } else {
+          console.log('Nooooo!!');
+      }
+  }); };
+  $scope.alert = function() {
+    var alert = $ionicPopup.alert({
+        title: 'You are secured!',
+        template: 'You are inside a secure area!'
+    });
+    alert.then(function(res) {
+    console.log('Yeah!! I know!!');
+    }); 
+  };
+  // invoke the prompt on controller init.
+  $scope.prompt();
+}) 
+
+
