@@ -23,24 +23,6 @@ angular.module('starter', ['ionic'])
   });
 })
 
-// .controller('AppCtrl', function($scope, $ionicActionSheet,$timeout) {
-//   $scope.showOptions = function() {
-//     var hideSheet = $ionicActionSheet.show({
-//       buttons: [{
-//       text: 'Open'
-//       }, {
-//       text: 'Get Link'
-//       }],
-//       destructiveText: 'Delete',
-//       titleText: 'Options'
-//     });
-//     // hide the sheet after three seconds
-//     $timeout(function() {
-//        hideSheet();
-//     }, 3000);
-//   }; 
-// })
-
 
 // .controller('AppCtrl', function($scope, $ionicPopover) {
 //   // init the popover
@@ -125,7 +107,6 @@ angular.module('starter', ['ionic'])
     console.log('Yeah!! I know!!');
     }); 
   };
-  // invoke the prompt on controller init.
   $scope.prompt();
 }) 
 
