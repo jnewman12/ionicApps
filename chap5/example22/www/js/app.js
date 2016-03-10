@@ -54,13 +54,13 @@ angular.module('starter', ['ionic'])
   $scope.error.empty = false;
   $scope.error.invalid = false;
   var prompt = $ionicPopup.show({
-     templateUrl: 'pin-template.html',
-     title: 'Enter Pin to continue',
-     scope: $scope,
-     buttons: [{
-      text: 'Cancel',
+    templateUrl: 'pin-template.html',
+    title: 'Enter Pin to continue',
+    scope: $scope,
+    buttons: [{
+    text: 'Cancel',
       onTap: function(e) {
-         $scope.state.cancel = true;
+        $scope.state.cancel = true;
       } 
     }, {
     text: '<b>Login</b>',
@@ -86,18 +86,19 @@ angular.module('starter', ['ionic'])
    }
   }] 
  });
- $scope.confirm = function() {
-  var confirm = $ionicPopup.confirm({
+  $scope.confirm = function() {
+    var confirm = $ionicPopup.confirm({
       title: 'Confirm Popup Heading',
       template: 'Are you sure you want to do that?'
-  });
-  confirm.then(function(res) {
-      if (res) {
-          console.log('Yes!');
-      } else {
-          console.log('Nooooo!!');
-      }
-  }); };
+    });
+    confirm.then(function(res) {
+    if (res) {
+        console.log('Yes!');
+    } else {
+        console.log('Nooooo!!');
+    }
+    }); 
+  };
   $scope.alert = function() {
     var alert = $ionicPopup.alert({
         title: 'You are secured!',
