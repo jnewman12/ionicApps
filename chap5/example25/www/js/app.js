@@ -23,8 +23,6 @@ angular.module('starter', ['ionic'])
   });
 })
 
-
-
 .factory('DataFactory', function($timeout, $q) {
   var API = {
     getData: function(count) {
@@ -50,3 +48,27 @@ angular.module('starter', ['ionic'])
   };
   return API;
 })
+
+.controller('AppCtrl', function($scope, DataFactory) {
+  $scope.items = [];
+  $scope.data = {
+     showDelete: false
+  };
+  $scope.edit = function(item) {
+    alert('Edit Item: ' + item.id);
+  };
+  $scope.share = function(item) {
+    alert('Share Item: ' + item.id);
+  };
+  $scope.moveItem = function(item, fromIndex, toIndex) {
+   $scope.items.splice(fromIndex, 1);
+   $scope.items.splice(toIndex, 0, item);
+  };
+  $scope.onItemDelete = function(item) {
+    $scope.items.splice($scope.items.indexOf(item), 1);
+  };
+  // get data on page load
+  DataFactory.getData().then(function(data) {
+    $scope.items = data;
+  });
+})  
