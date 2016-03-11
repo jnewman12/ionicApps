@@ -22,3 +22,31 @@ angular.module('starter', ['ionic'])
     }
   });
 })
+
+
+
+.factory('DataFactory', function($timeout, $q) {
+  var API = {
+    getData: function(count) {
+    // Spoof a network call using promises
+    var deferred = $q.defer();
+    var data = [],
+    var _o = {};
+    var count = count || 20;
+    for (var i = 0; i < count; i++) {
+      _o = {
+        // http://stackoverflow.com/a/8084248/1015046
+        id: i + 1,
+        title: (Math.random() + 1).toString(36).substring(7)
+      };
+      data.push(_o);
+    };
+    $timeout(function() {
+      // success response!
+      deferred.resolve(data);
+    }, 1000);
+      return deferred.promise;
+    }
+  };
+  return API;
+})
