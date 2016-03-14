@@ -27,13 +27,13 @@ angular.module('starter', ['ionic'])
   $scope.scopeGesture = 'None';
   $scope.delegateGesture = 'None';
   $scope.onDragUp = function() {
-     $scope.scopeGesture = 'Drag up fired!'
+    $scope.scopeGesture = 'Drag up fired!'
   };
   // Event listener using event delegation
   // The logic below would be typically written in a directive
   // We have added this to the controller for illustration purposes
   var $element = angular.element(document.querySelector('#gestureContainer'));
   $ionicGesture.on('dragup', function() {
-     $scope.delegateGesture = 'Drag up fired!';
+    $scope.delegateGesture = 'Drag up fired!';
   }, $element);
 })
