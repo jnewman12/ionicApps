@@ -23,6 +23,16 @@ angular.module('starter', ['ionic'])
   });
 })
 
+.config(function ($ionicConfigProvider) {
+  $ionicConfigProvider.views.transition('none');
+  $ionicConfigProvider.views.maxCache(10);
+  $ionicConfigProvider.form.checkbox('circle'); //square or circle
+  $ionicConfigProvider.tabs.style('striped'); // striped or standard
+  $ionicConfigProvider.templates.maxPrefetch(10);
+  $ionicConfigProvider.navBar.alignTitle('right');
+})
+
+
 .controller('AppCtrl', function($scope, $ionicGesture) {
   $scope.scopeGesture = 'None';
   $scope.delegateGesture = 'None';
