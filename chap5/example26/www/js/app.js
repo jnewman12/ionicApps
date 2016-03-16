@@ -23,13 +23,19 @@ angular.module('starter', ['ionic'])
   });
 })
 
-.config(function ($ionicConfigProvider) {
-  $ionicConfigProvider.views.transition('none');
-  $ionicConfigProvider.views.maxCache(10);
-  $ionicConfigProvider.form.checkbox('circle'); //square or circle
-  $ionicConfigProvider.tabs.style('striped'); // striped or standard
-  $ionicConfigProvider.templates.maxPrefetch(10);
-  $ionicConfigProvider.navBar.alignTitle('right');
+// .config(function ($ionicConfigProvider) {
+//   $ionicConfigProvider.views.transition('none');
+//   $ionicConfigProvider.views.maxCache(10);
+//   $ionicConfigProvider.form.checkbox('circle'); //square or circle
+//   $ionicConfigProvider.tabs.style('striped'); // striped or standard
+//   $ionicConfigProvider.templates.maxPrefetch(10);
+//   $ionicConfigProvider.navBar.alignTitle('right');
+// })
+
+.config(function($ionicConfigProvider) {
+  // Checkbox style. Android defaults to square and iOS defaults to circle.
+  $ionicConfigProvider.platform.ios.form.checkbox('square');
+  $ionicConfigProvider.platform.android.form.checkbox('circle');
 })
 
 
