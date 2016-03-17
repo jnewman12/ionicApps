@@ -32,10 +32,22 @@ angular.module('starter', ['ionic'])
 //   $ionicConfigProvider.navBar.alignTitle('right');
 // })
 
-.config(function($ionicConfigProvider) {
-  // Checkbox style. Android defaults to square and iOS defaults to circle.
-  $ionicConfigProvider.platform.ios.form.checkbox('square');
-  $ionicConfigProvider.platform.android.form.checkbox('circle');
+// .config(function($ionicConfigProvider) {
+//   // Checkbox style. Android defaults to square and iOS defaults to circle.
+//   $ionicConfigProvider.platform.ios.form.checkbox('square');
+//   $ionicConfigProvider.platform.android.form.checkbox('circle');
+// })
+
+.config(function() {
+  console.log('ionic.Platform.isWebView()',
+  ionic.Platform.isWebView());
+  console.log('ionic.Platform.isIPad()',
+  ionic.Platform.isIPad());
+  console.log('ionic.Platform.isIOS()', ionic.Platform.isIOS());
+  console.log('ionic.Platform.isAndroid()',
+  ionic.Platform.isAndroid());
+  console.log('ionic.Platform.isWindowsPhone()',
+  ionic.Platform.isWindowsPhone());
 })
 
 
