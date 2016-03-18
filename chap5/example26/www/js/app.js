@@ -51,17 +51,30 @@ angular.module('starter', ['ionic'])
 })
 
 
-.controller('AppCtrl', function($scope, $ionicGesture) {
-  $scope.scopeGesture = 'None';
-  $scope.delegateGesture = 'None';
-  $scope.onDragUp = function() {
-    $scope.scopeGesture = 'Drag up fired!'
-  };
-  // Event listener using event delegation
-  // The logic below would be typically written in a directive
-  // We have added this to the controller for illustration purposes
-  var $element = angular.element(document.querySelector('#gestureContainer'));
-  $ionicGesture.on('dragup', function() {
-    $scope.delegateGesture = 'Drag up fired!';
-  }, $element);
+// .controller('AppCtrl', function($scope, $ionicGesture) {
+//   $scope.scopeGesture = 'None';
+//   $scope.delegateGesture = 'None';
+//   $scope.onDragUp = function() {
+//     $scope.scopeGesture = 'Drag up fired!'
+//   };
+//   // Event listener using event delegation
+//   // The logic below would be typically written in a directive
+//   // We have added this to the controller for illustration purposes
+//   var $element = angular.element(document.querySelector('#gestureContainer'));
+//   $ionicGesture.on('dragup', function() {
+//     $scope.delegateGesture = 'Drag up fired!';
+//   }, $element);
+// })
+
+// can manipulate the mobile DOM with ionic as well
+.controller('AppCtrl', function($scope) {
+  var $element = angular.element(document.querySelector('#someElement'));
+  console.log(ionic.DomUtil.getParentWithClass($element, '.card'));
+  console.log(ionic.DomUtil.getParentOrSelfWithClass($element, '.card'));
+  // requestAnimationFrame example
+  function loop() {
+    console.log('Animation Frame Requested');
+    ionic.DomUtil.requestAnimationFrame(loop); 
+  }
+  loop(); 
 })
