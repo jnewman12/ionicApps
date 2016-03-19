@@ -67,14 +67,37 @@ angular.module('starter', ['ionic'])
 // })
 
 // can manipulate the mobile DOM with ionic as well
-.controller('AppCtrl', function($scope) {
-  var $element = angular.element(document.querySelector('#someElement'));
-  console.log(ionic.DomUtil.getParentWithClass($element, '.card'));
-  console.log(ionic.DomUtil.getParentOrSelfWithClass($element, '.card'));
-  // requestAnimationFrame example
-  function loop() {
-    console.log('Animation Frame Requested');
-    ionic.DomUtil.requestAnimationFrame(loop); 
+// .controller('AppCtrl', function($scope) {
+//   var $element = angular.element(document.querySelector('#someElement'));
+//   console.log(ionic.DomUtil.getParentWithClass($element, '.card'));
+//   console.log(ionic.DomUtil.getParentOrSelfWithClass($element, '.card'));
+//   // requestAnimationFrame example
+//   function loop() {
+//     console.log('Animation Frame Requested');
+//     ionic.DomUtil.requestAnimationFrame(loop); 
+//   }
+//   loop(); 
+// })
+
+.controller('AppCtrl', ['$scope', function($scope) {
+  // Binding Events
+  var $body = document.querySelector('body');
+  var eventListener = function() {
+   console.log('Body Tapped!');
+   ionic.EventController.off('tap', eventListener, $body);
+  };
+  ionic.EventController.on('tap', eventListener, $body);
+  ionic.EventController.trigger('tap', {
+    target: $body
+  });
+  // Binding gestures
+  var cancelSwipeUp;
+  var gestureListener = function() {
+    console.log('Body Swiped Up!');
+    ionic.EventController.offGesture(cancelSwipeUp, 'swipeup', gestureListener);
   }
-  loop(); 
-})
+    cancelSwipeUp = ionic.EventController.onGesture('swipeup', gestureListener, $body);
+      ionic.EventController.trigger('swipeup', { target: $body }); 
+}])
+
+
