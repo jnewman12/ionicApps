@@ -96,8 +96,8 @@ angular.module('starter', ['ionic'])
     console.log('Body Swiped Up!');
     ionic.EventController.offGesture(cancelSwipeUp, 'swipeup', gestureListener);
   }
-    cancelSwipeUp = ionic.EventController.onGesture('swipeup', gestureListener, $body);
-      ionic.EventController.trigger('swipeup', { target: $body }); 
+  cancelSwipeUp = ionic.EventController.onGesture('swipeup', gestureListener, $body);
+  ionic.EventController.trigger('swipeup', { target: $body }); 
 }])
 
 
