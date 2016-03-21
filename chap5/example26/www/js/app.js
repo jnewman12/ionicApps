@@ -79,6 +79,7 @@ angular.module('starter', ['ionic'])
 //   loop(); 
 // })
 
+
 .controller('AppCtrl', ['$scope', function($scope) {
   // Binding Events
   var $body = document.querySelector('body');
