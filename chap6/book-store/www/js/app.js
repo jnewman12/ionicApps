@@ -6,34 +6,32 @@
 // 'starter.controllers' is found in controllers.js
 angular.module('BookStoreApp', ['ionic', 'BookStoreApp.controllers'])
 
-// .run(function($ionicPlatform) {
-//   $ionicPlatform.ready(function() {
-//     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
-//     // for form inputs)
-//     if (window.cordova && window.cordova.plugins.Keyboard) {
-//       cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
-//       cordova.plugins.Keyboard.disableScroll(true);
+.run(function($ionicPlatform, $rootScope) {
+  $ionicPlatform.ready(function() {
+    // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
+    // for form inputs)
+    if (window.cordova && window.cordova.plugins.Keyboard) {
+      cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
+      cordova.plugins.Keyboard.disableScroll(true);
 
-//     }
-//     if (window.StatusBar) {
-//       // org.apache.cordova.statusbar required
-//       StatusBar.styleDefault();
-//     }
-//   });
-// })
+    }
+    if (window.StatusBar) {
+      // org.apache.cordova.statusbar required
+      StatusBar.styleDefault();
+    }
+  });
+})
 
-.run(['$rootScope', 'AuthFactory',
-  function($rootScope, AuthFactory) {
-    $rootScope.isAuthenticated = AuthFactory.isLoggedIn();
-    // utility method to convert number to an array of elements
-   //  $rootScope.getNumber = function(num) {
-   //    return new Array(num);
-   // ￼}
-  },
-  $rootScope.getNumber = function(num) {
-    return new Array(num);
-  }
-])
+// this is not working, and i have not idea why
+// .run(['$rootScope', 'AuthFactory',
+//   function($rootScope, AuthFactory) {
+//     $rootScope.isAuthenticated = AuthFactory.isLoggedIn();
+//     // utility method to convert number to an array of elements
+//     $rootScope.getNumber = function(num) {
+//      return new Array(num);
+//   ￼ }
+//    } 
+// ])
 
 .config(['$stateProvider', '$urlRouterProvider', '$httpProvider',
   function($stateProvider, $urlRouterProvider, $httpProvider) {
