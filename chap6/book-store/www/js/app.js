@@ -29,10 +29,10 @@ angular.module('BookStoreApp', ['ionic', 'BookStoreApp.controllers'])
    //  $rootScope.getNumber = function(num) {
    //    return new Array(num);
    // ￼}
-  }
+  },
   $rootScope.getNumber = function(num) {
     return new Array(num);
-  };
+  }
 ])
 
 .config(['$stateProvider', '$urlRouterProvider', '$httpProvider',
