@@ -108,6 +108,7 @@ angular.module('BookStoreApp', ['ionic', 'BookStoreApp.controllers', 'AuthFactor
     return LOADERAPI;
   }
 ])
+// still havent resolved error
 
 
 
