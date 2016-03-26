@@ -4,7 +4,7 @@
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
 // 'starter.controllers' is found in controllers.js
-angular.module('BookStoreApp', ['ionic', 'BookStoreApp.controllers'])
+angular.module('BookStoreApp', ['ionic', 'BookStoreApp.controllers', 'AuthFactory'])
 
 .run(function($ionicPlatform, $rootScope) {
   $ionicPlatform.ready(function() {
@@ -22,16 +22,14 @@ angular.module('BookStoreApp', ['ionic', 'BookStoreApp.controllers'])
   });
 })
 
-// this is not working, and i have not idea why
-// .run(['$rootScope', 'AuthFactory',
-//   function($rootScope, AuthFactory) {
-//     $rootScope.isAuthenticated = AuthFactory.isLoggedIn();
-//     // utility method to convert number to an array of elements
-//     $rootScope.getNumber = function(num) {
-//      return new Array(num);
-//   ￼ }
-//    } 
-// ])
+//this is not working, and i have not idea why
+.run(['$rootScope', 'AuthFactory',
+  function($rootScope, AuthFactory) {
+    $rootScope.isAuthenticated = AuthFactory.isLoggedIn();
+    // utility method to convert number to an array of elements
+    $rootScope.getNumber = function(num) { return new Array(num); }
+  } 
+])
 
 .config(['$stateProvider', '$urlRouterProvider', '$httpProvider',
   function($stateProvider, $urlRouterProvider, $httpProvider) {
@@ -87,6 +85,29 @@ angular.module('BookStoreApp', ['ionic', 'BookStoreApp.controllers'])
   }
 ]);
 
+// sample service in this file for now
+.factory('Loader', ['$ionicLoading', '$timeout',
+  function($ionicLoading, $timeout) {
+    var LOADERAPI = {
+      showLoading: function(text) {
+        text = text || 'Loading...';
+        $ionicLoading.show({
+          template: text
+        });
+      },
+      hideLoading: function() {
+        $ionicLoading.hide();
+      },
+      toggleLoadingWithMessage: function(text, timeout) {
+        $rootScope.showLoading(text);
+        $timeout(function() {
+          $rootScope.hideLoading();
+        }, timeout || 3000);
+      }
+    };
+    return LOADERAPI;
+  }
+])
 
 
 
