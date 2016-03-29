@@ -139,5 +139,9 @@ angular.module('BookStoreApp', ['ionic', 'BookStoreApp.controllers', 'AuthFactor
   return LSAPI;
 }])
 
+.factory('AuthFactory', [function() {
+  // still fixing a big..
+}])
+
 
 
