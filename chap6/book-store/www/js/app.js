@@ -140,7 +140,7 @@ angular.module('BookStoreApp', ['ionic', 'BookStoreApp.controllers', 'AuthFactor
 }])
 
 .factory('AuthFactory', [function() {
-  // still fixing a big..
+  // still fixing a bug..
 }])
 
 
