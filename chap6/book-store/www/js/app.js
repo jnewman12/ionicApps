@@ -166,5 +166,23 @@ angular.module('BookStoreApp', ['ionic', 'BookStoreApp.controllers', 'AuthFactor
   return AuthAPI;
 }])
 
+.factory('TokenInterceptor', ['$q', 'AuthFactory', function($q, AuthFactory) {
+  return {
+    request: function(config) {
+      config.headers = config.headers || {};
+      var token = AuthFactory.getToken();
+      var user = AuthFactory.getUser();
+      if (token && user) {
+        config.headers['X-Access-Token'] = token.token;
+        config.headers['X-Key'] = user.email;
+        config.headers['Content-Type'] = "application/json";
+      }
+      return config || $q.when(config);
+    },
+    response: function(response) {
+      return response || $q.when(response);
+    } 
+  };
+}])
 
 
