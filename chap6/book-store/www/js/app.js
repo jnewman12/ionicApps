@@ -185,4 +185,14 @@ angular.module('BookStoreApp', ['ionic', 'BookStoreApp.controllers', 'AuthFactor
   };
 }])
 
-
+// rest factory
+factory('BooksFactory', ['$http', function($http) {
+  var perPage = 30;
+  var API = {
+    get: function(page) {￼
+      return $http.get(base + '/api/v1/books/' + page + '/' + perPage); 
+      }
+    };
+  };
+  return API;
+}])
