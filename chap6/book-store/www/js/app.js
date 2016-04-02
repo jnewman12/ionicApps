@@ -196,3 +196,10 @@ factory('BooksFactory', ['$http', function($http) {
   };
   return API;
 }])
+
+
+// users 
+.factory('UserFactory', ['$http', 'AuthFactory',
+  function($http, AuthFactory) { 
+
+} ] )
