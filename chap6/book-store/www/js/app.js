@@ -201,5 +201,11 @@ factory('BooksFactory', ['$http', function($http) {
 // users 
 .factory('UserFactory', ['$http', 'AuthFactory',
   function($http, AuthFactory) { 
-
+    var UserAPI = {
+      login: function(user) {
+       return $http.post(base + '/login', user);
+    },
+    register: function(user) {
+     return $http.post(base + '/register', user);
+    }
 } ] )
