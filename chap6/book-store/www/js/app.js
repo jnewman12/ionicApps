@@ -207,6 +207,27 @@ factory('BooksFactory', ['$http', function($http) {
     },
     register: function(user) {
      return $http.post(base + '/register', user);
+    },
+    logout: function() {
+      AuthFactory.deleteAuth();
+    },
+    getCartItems: function() {
+      var userId = AuthFactory.getUser()._id;
+      return $http.get(base + '/api/v1/users/' + userId + '/cart');
+    },
+    addToCart: function(book) {
+     var userId = AuthFactory.getUser()._id;
+     return $http.post(base + '/api/v1/users/' + userId + '/cart', book);
+    },
+    getPurchases: function() {
+      var userId = AuthFactory.getUser()._id;
+      return $http.get(base + '/api/v1/users/' + userId + '/purchases');
+    },
+    addPurchase: function(cart) {
+      var userId = AuthFactory.getUser()._id;
+      return $http.post(base + '/api/v1/users/' + userId + '/purchases', cart);
     }
-  // bookmark    
-} ] )
+  };
+  return UserAPI;
+  }
+])
