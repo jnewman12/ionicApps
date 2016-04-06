@@ -1,5 +1,9 @@
 angular.module('BookStoreApp.controllers', [])
 
+// .controller('AppCtrl', ['$rootScope', '$ionicModal', 'AuthFactory', '$location', 'UserFactory', '$scope', 'Loader',
+//   function($rootScope, $ionicModal, AuthFactory, $location, UserFactory, $scope, Loader) {
+// }])
+
 .controller('AppCtrl', function($scope, $ionicModal, $timeout) {
 
   // With the new view caching in Ionic, Controllers are only called
