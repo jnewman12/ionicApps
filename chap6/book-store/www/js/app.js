@@ -29,6 +29,10 @@ angular.module('BookStoreApp', ['ionic', 'BookStoreApp.controllers', 'AuthFactor
     // utility method to convert number to an array of elements
     $rootScope.getNumber = function(num) { return new Array(num); }
   } 
+
+  var isLoaded = function() {
+    console.log("hi");
+  }
 ])
 
 .config(['$stateProvider', '$urlRouterProvider', '$httpProvider',
