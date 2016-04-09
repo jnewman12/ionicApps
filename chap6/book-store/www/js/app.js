@@ -30,9 +30,6 @@ angular.module('BookStoreApp', ['ionic', 'BookStoreApp.controllers', 'AuthFactor
     $rootScope.getNumber = function(num) { return new Array(num); }
   } 
 
-  // var isLoaded = function() {
-  //   console.log("hi");
-  // }
 ])
 
 .config(['$stateProvider', '$urlRouterProvider', '$httpProvider',
