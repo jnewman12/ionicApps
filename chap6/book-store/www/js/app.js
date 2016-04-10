@@ -22,14 +22,14 @@ angular.module('BookStoreApp', ['ionic', 'BookStoreApp.controllers', 'AuthFactor
   });
 })
 
-//this is not working, and i have not idea why
-.run(['$rootScope', 'AuthFactory',
-  function($rootScope, AuthFactory) {
+run(['$rootScope', 'AuthFactory',
+  function($rootScope, , AuthFactory) {
     $rootScope.isAuthenticated = AuthFactory.isLoggedIn();
     // utility method to convert number to an array of elements
-    $rootScope.getNumber = function(num) { return new Array(num); }
+    $rootScope.getNumber = function(num) {
+      return new Array(num);
+￼   }
   } 
-
 ])
 
 .config(['$stateProvider', '$urlRouterProvider', '$httpProvider',
