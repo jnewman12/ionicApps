@@ -109,7 +109,6 @@ run(['$rootScope', 'AuthFactory',
     return LOADERAPI;
   }
 ])
-// still havent resolved error
 
 // local storage
 .factory('LSFactory', [function() {
