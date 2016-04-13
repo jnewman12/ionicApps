@@ -87,6 +87,7 @@ run(['$rootScope', 'AuthFactory',
 ]);
 
 // sample service in this file for now
+// still error, but kind of working...frustrating
 .factory('Loader', ['$ionicLoading', '$timeout',
   function($ionicLoading, $timeout) {
     var LOADERAPI = {
